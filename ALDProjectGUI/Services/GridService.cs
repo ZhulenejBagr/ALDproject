@@ -7,8 +7,8 @@
         private static readonly int _defaultSizeY = 5;
         private static readonly int _minSizeX = 3;
         private static readonly int _minSizeY = 3;
-        private static readonly int _maxSizeX = 20;
-        private static readonly int _maxSizeY = 20;
+        private static readonly int _maxSizeX = 50;
+        private static readonly int _maxSizeY = 50;
         private int _sizeX = _defaultSizeX;
         private int _sizeY = _defaultSizeY;
         private int _seed = _defaultSeed;
@@ -44,7 +44,7 @@
         // returns non-border Grid tiles
         public int[][] Grid { get => _internalGrid[1..^1].Select(x => x[1..^1]).ToArray(); }
 
-        // used to generate
+        // used to generate tiles
         public int GridSeed 
         { 
             get => _seed;
@@ -106,7 +106,7 @@
                 var leftv = _internalGrid[x][y - 1];
                 var left = leftv > -1 ? (leftv & 2) / 2 : Rnd();
 
-                // calculate value of curren tile based on above values
+                // calculate value of current tile based on above values
                 _internalGrid[x][y] = top + right * 2 + bot * 4 + left * 8;
 
             }

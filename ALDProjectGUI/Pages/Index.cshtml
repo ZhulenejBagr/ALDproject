@@ -4,9 +4,25 @@
     ViewData["Title"] = "Home page";
 }
 
+<link href="~/CSS/stylesheet.css" rel="Stylesheet" type="text/css" />
 <div class="wrapper">
-    <a class="btn btn-primary" asp-page-handler="Generate">Generovat grid</a>
-    <link href="~/CSS/stylesheet.css" rel="Stylesheet" type="text/css" />
+    <form method="post" class="form-horizontal">
+        <div class="form-group" >
+            <label for="Seed" class="col-sm-2 form-text">Seed</label>
+            <input type="number" class="form-text" value="@Model.GS.GridSeed" name="Seed"/>
+        </div>
+        <div class="form-group" >
+            <label for="Xdim" class="col-sm-2 form-text">XDim</label>
+            <input type="number" class="form-text" value="@Model.GS.GridSizeX" name="Xdim" />
+        </div>
+        <div class="form-group">
+            <label for="Ydim" class="col-sm-2 form-text">YDim</label>
+            <input type="number" class="form-text" value="@Model.GS.GridSizeY" name="Ydim" />
+        </div>
+        <div class="form-group" >
+            <button class="btn btn-primary" type="submit">Generovat grid</button>    
+        </div>
+    </form>
 
     @for (var x = 0; x < Model.GS.GridSizeX; x++) {
         <div class="grow" >
