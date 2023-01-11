@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="TileImages\**" />
+    <Content Remove="TileImages\**" />
+    <EmbeddedResource Remove="TileImages\**" />
+    <None Remove="TileImages\**" />
+  </ItemGroup>
+
 </Project>

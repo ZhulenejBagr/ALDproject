@@ -4,7 +4,17 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="wrapper">
+    <a class="btn btn-primary" asp-page-handler="Generate">Generovat grid</a>
+    <link href="~/CSS/stylesheet.css" rel="Stylesheet" type="text/css" />
+
+    @for (var x = 0; x < Model.GS.GridSizeX; x++) {
+        <div class="grow" >
+            @for (var y = 0; y < Model.GS.GridSizeY; y++) {
+                <div class="gcol" >
+                    <img src="@("/tiles/tile" + Model.GS.Grid[x][y].ToString() + ".png")" />
+                </div>
+            }
+        </div>
+    }
 </div>

@@ -1,20 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ALDProjectGUI.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ALDProjectGUI.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        public GridService GS { get; private set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(GridService gs)
         {
-            _logger = logger;
+            GS = gs;
         }
 
         public void OnGet()
         {
+            GS.EmptyGrid();
+        }
 
+        public void OnGetGenerate()
+        {
+            GS.GenerateGrid();
         }
     }
 }
